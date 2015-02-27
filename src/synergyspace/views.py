@@ -7,3 +7,6 @@ class HomePage(generic.TemplateView):
 
 class AboutPage(generic.TemplateView):
     template_name = "about.html"
+
+class ReviewBooking(generic.TemplateView):
+    template_name = "review_booking.html"
