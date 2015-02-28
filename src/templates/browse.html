@@ -32,7 +32,6 @@
         var map = new google.maps.Map(mapCanvas, mapOptions)
       }
       google.maps.event.addDomListener(window, 'load', initialize);
-      
 
     </script> 
 {% endblock %} 
@@ -47,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 column">
+            <div class="col-md-6">
                 <div class="row">
                     <form>
                         <div class="form-group col-lg-11">
@@ -107,6 +106,21 @@
                  </div>
                  {% endfor %}
             </div>
+            {% if is_paginated %}
+                <div class="pagination">
+                    <span class="page-links">
+                        {% if page_obj.has_previous %}
+                            <a href="/browse/{{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+                        <span class="page-current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="/browse/{{ page_obj.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

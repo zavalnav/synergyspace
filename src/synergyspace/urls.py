@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 import profiles.urls
 import accounts.urls
 from . import views
+from accounts.models import *
 
 urlpatterns = patterns(
     '',
@@ -15,7 +16,7 @@ urlpatterns = patterns(
     url(r'^', include(accounts.urls, namespace='accounts')),
     url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^browse/', views.BrowsePage.as_view()),
+    url(r'^browse/(?P<page>\d+)?', views.BrowsePage.as_view()),
 )
 
 # User-uploaded files like profile pics need to be served in development

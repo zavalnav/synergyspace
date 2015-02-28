@@ -15,4 +15,5 @@ class ReviewBooking(generic.TemplateView):
 class BrowsePage(generic.ListView):
     model = Space
     template_name = "browse.html"
+    paginate_by = 3
     
